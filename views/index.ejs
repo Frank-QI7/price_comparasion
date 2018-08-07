@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>输入用户名进入聊天室</title>
+	<style type="text/css">
+		div{
+			width: 700px;
+			height: 30px;
+			padding: 40px;
+			border: 1px solid #000;
+		}
+		#username{
+			font-size: 30px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div>
+		<!-- 这里就用get请求了，方便一点 -->
+		<form action="/check" method="get" >
+			输入昵称:
+			<input type="text" id='username' name="username"/>
+			<input type="submit" value="进入聊天室">
+		</form>
+	</div>
+</body>
+</html>

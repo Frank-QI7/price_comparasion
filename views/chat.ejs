@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>聊天室～</title>
+	<style type="text/css">
+	.caozuo{
+		position: fixed;
+		bottom: 0;
+		left: 10;
+		height: 80px; 
+		/*background-color: #ccc;*/
+		width: 50%;
+	}
+	.caozuo input{
+		font-size: 20px;
+	}
+	.caozuo input[type=text]{
+		width: 50%;
+	}
+
+	canvas{
+		width: 90%;
+		height: 500px;
+		border: 1px solid #000;
+	}
+
+	</style>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/jumbotron.css" rel="stylesheet">
+</head>
+
+<body>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<h1> 哈哈聊天室  欢迎<span id="user"><%=username%></span></h1>
+				<ul class="liebiao">
+			
+				</ul>
+
+				<div class="caozuo">
+					<input type="text" id="content"/>
+					<p><a class="btn btn-primary btn-lg" id="submit" role="button">发言</a></p>
+				</div>
+			</div>
+
+
+		</div>
+
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		var socket = io();
+
+		$('#content').keydown(function(e){
+			if(e.keyCode == 13){
+				//把文本框的内容上传：
+				socket.emit("message",{
+					"content" : $("#content").val(),
+					"user" : $("#user").html()
+				});
+				$(this).val("");
+			}
+		});
+
+		$('#submit').click(function(){
+			socket.emit('message',{
+						"content":$('#content').val(),
+						// 从input获取内容用.val(), 其他的标签(比如div，span)就用.html()
+						"user":$('#user').html()
+					});
+			$('#content').val('');
+		});
+
+		socket.on('messages',function(msg){
+			// .append 就是说新信息在下面
+			// 如果用.prepend，就是新信息在上面
+			
+			$('.liebiao').append("<li><b>" +msg.user+": </b>" + msg.content+"</li>");
+		});
+
+	</script>
+
+</body>
+</html>
