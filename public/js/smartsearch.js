@@ -79,52 +79,52 @@
                         $('#as').css('display','none');
                     }
                     // 下
-                    if (event.which == 40) {
-                        if (numspan == length){
-                            numspan = 0;
-                        // input.val(text);
-                            for (var i = 0; i < length; i++) {
-                                if (numspan == i) {
-                                    active(i);
-                                }else {
-                                    defaut(i);
-                                }
-                            }}else{
-                                numspan++;
-                                for (var i = 0; i < length; i++) {
-                                if (numspan == i) {
-                                    active(i);
-                                }else {
-                                    defaut(i);
-                                }
-                            }   
+                    // if (event.which == 40) {
+                    //     if (numspan == length){
+                    //         numspan = 0;
+                    //     // input.val(text);
+                    //         for (var i = 0; i < length; i++) {
+                    //             if (numspan == i) {
+                    //                 active(i);
+                    //             }else {
+                    //                 defaut(i);
+                    //             }
+                    //         }}else{
+                    //             numspan++;
+                    //             for (var i = 0; i < length; i++) {
+                    //             if (numspan == i) {
+                    //                 active(i);
+                    //             }else {
+                    //                 defaut(i);
+                    //             }
+                    //         }   
 
-                        }
-                        input.val($('#sa_ul').children().eq(numspan).text());
-                    }
-                    // 上
-                    if (event.which == 38) {
-                        if (numspan == -1){
-                            numspan = length -1;
-                            // input.val(text);
-                        for (var i = 0; i < length; i++) {
-                            if (numspan == i) {
-                                active(i);
-                            }else {
-                                defaut(i);
-                            }
-                        }}else{
-                            numspan--;
-                            for (var i = 0; i < length; i++) {
-                            if (numspan == i) {
-                                active(i);
-                            }else {
-                                defaut(i);
-                            }}
-                        }
+                    //     }
+                    //     input.val($('#sa_ul').children().eq(numspan).text());
+                    // }
+                    // // 上
+                    // if (event.which == 38) {
+                    //     if (numspan == -1){
+                    //         numspan = length -1;
+                    //         // input.val(text);
+                    //     for (var i = 0; i < length; i++) {
+                    //         if (numspan == i) {
+                    //             active(i);
+                    //         }else {
+                    //             defaut(i);
+                    //         }
+                    //     }}else{
+                    //         numspan--;
+                    //         for (var i = 0; i < length; i++) {
+                    //         if (numspan == i) {
+                    //             active(i);
+                    //         }else {
+                    //             defaut(i);
+                    //         }}
+                    //     }
 
-                        input.val($('#sa_ul').children().eq(numspan).text());
-                    };
+                    //     input.val($('#sa_ul').children().eq(numspan).text());
+                    // };
                 });
                 $('#sa_ul').children().mouseover(function() {
                     numspan = $(this).index();
