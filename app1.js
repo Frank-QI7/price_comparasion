@@ -40,7 +40,7 @@ app.get('/search',function(req,res,next){
 	for(var i = 0; i < name1.length;i++){
 		condition +="(" + name1[i] + ").*"; 
 	}
-	product.find({"name":{$regex:condition,$options:"$i"}},null,{sort: {price: 1}},function(err,result){
+	product.find({"name":{$regex:condition,$options:"$i"}},null,{sort: {price1: 1}},function(err,result){
 		res.render('search1',
 			{"result":result,
 			"keywords":name
